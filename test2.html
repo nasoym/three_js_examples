@@ -79,7 +79,8 @@
 
       // Stomp.js boilerplate
       // var client = Stomp.client('ws://' + window.location.hostname + ':15674/ws');
-      var client = Stomp.client('ws://localhost:32784/ws');
+      // var client = Stomp.client('ws://localhost:32784/ws');
+      var client = Stomp.client('ws://localhost:8080/ws');
       client.debug = pipe('#second');
 
       var print_first = pipe('#first', function(data) {
