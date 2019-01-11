@@ -90,6 +90,7 @@
       var on_connect = function(x) {
           // id = client.subscribe("/topic/test", function(d) {
           id = client.subscribe("/queue/foo", function(d) {
+              console.log("::: " + d);
               console.log("::: " + d.body);
                print_first(d.body);
           });

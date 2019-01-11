@@ -8,12 +8,14 @@
 
   <script src="js/three.min.js"></script>
   <script src="js/OrbitControls.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="js/stomp.js"></script>
 
   <script>
 
     // Set up the scene, camera, and renderer as global variables.
     var scene, camera, renderer;
-
+    var cube ;
 
     document.onreadystatechange = function () {
       if (document.readyState === "complete") {
@@ -23,6 +25,37 @@
         // ws.addEventListener('message', function (event) {
         //     console.log('Message from server ', event.data);
         // });
+
+
+        // Stomp.js boilerplate
+        // var client = Stomp.client('ws://' + window.location.hostname + ':15674/ws');
+        // var client = Stomp.client('ws://localhost:32784/ws');
+        var client = Stomp.client('ws://localhost:8080/ws');
+        // client.debug = pipe('#second');
+
+        var on_connect = function(x) {
+            // id = client.subscribe("/topic/test", function(d) {
+            id = client.subscribe("/queue/foo", function(d) {
+                // console.log("::: " + d);
+                // console.log("::: " , d.body);
+                // console.log("::: " , typeof JSON.parse(d.body));
+                console.log("::: " , JSON.parse(d.body));
+                //  print_first(d.body);
+                // console.log("::: " , cube);
+                // console.log("::: " , cube.position);
+
+                var body = JSON.parse(d.body);
+                cube.position = new THREE.Vector3(body.pos[0],body.pos[1],body.pos[2]);
+                console.log("::: " , cube.position);
+                console.log("::: " , cube);
+
+            });
+        };
+        var on_error =  function() {
+          console.log('error');
+        };
+        client.connect('guest', 'guest', on_connect, on_error, '/');
+
       }
     };
     
@@ -79,7 +112,7 @@
         var material = new THREE.MeshLambertMaterial({color: 0x55B663});
 
 				// var cube = new THREE.Mesh( new THREE.CubeGeometry( 200, 200, 200 ), new THREE.MeshNormalMaterial() );
-				var cube = new THREE.Mesh( new THREE.CubeGeometry( 5, 5, 2 ), material );
+				cube = new THREE.Mesh( new THREE.CubeGeometry( 5, 5, 2 ), material );
 				// cube.position.y = 150;
 				// // add the object to the scene
 				scene.add( cube );

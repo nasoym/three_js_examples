@@ -37,6 +37,28 @@ elif [[ "$1" == "create_queue" ]];then shift
 elif [[ "$1" == "message" ]];then shift
   curl -i -s -XPOST --data-binary '{"properties":{},"routing_key":"foo","payload":"Hello World","payload_encoding":"string"}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
 
+# elif [[ "$1" == "test" ]];then shift
+#   curl -i -s \
+#     -XPOST \
+#     --data-binary '{"properties":{"content_type":"application/json"},"routing_key":"foo","payload":"[\"44-dkddkkddksjsldkjslkdf\"]","payload_encoding":"string"}' \
+#     -u "guest:guest" \
+#     "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
+
+elif [[ "$1" == "test" ]];then shift
+#   echo '{"properties":{"content_type":"application/json"},"routing_key":"foo","payload":"[\"44-dkddkkddksjsldkjslkdf\"]","payload_encoding":"string"}' \
+#   echo '{"properties":{"content_type":"application/json"},"routing_key":"foo","payload":"[\"44-dkddkkddksjsldkjslkdf\"]","payload_encoding":"string"}' \
+#
+#   jq -n '{properties:{content_type:"application/json"},routing_key:"foo",payload_encoding:"string",payload:.}'
+#
+# jq -c -n '{a:"44"}' 
+  jq -c . \
+  | jq -R -c '{properties:{content_type:"application/json"},routing_key:"foo",payload_encoding:"string",payload:.}' \
+  | curl -i -s \
+    -XPOST \
+    --data-binary @- \
+    -u "guest:guest" \
+    "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
+
 elif [[ "$1" == "all" ]];then shift
   docker rm -vf rabbit socat || true
   ${0} rabbit
