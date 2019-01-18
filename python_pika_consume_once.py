@@ -15,20 +15,14 @@ parameters = pika.ConnectionParameters(rabbit_host,
                                    credentials)
 connection = pika.BlockingConnection(parameters)
 
-
 channel = connection.channel()
 
-def callback(ch, method, properties, body):
-  print(" [x] Received %r" % body)
+a,b,c = channel.basic_get(queue='foo', no_ack=True)
+print(" [x] a %r" % a)
+print(" [x] b %r" % b)
+print(" [x] c %s" % c)
+print(str(c))
+print(c.decode('UTF-8'))
 
-
-# print(' [*] Waiting for messages. To exit press CTRL+C')
-
-channel.basic_consume(callback,
-											queue='foo',
-											no_ack=True)
-channel.start_consuming()
-
-	
 connection.close()
 
