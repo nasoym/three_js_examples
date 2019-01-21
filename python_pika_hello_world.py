@@ -19,7 +19,7 @@ channel = connection.channel()
 # channel.queue_declare(queue='hello')
 channel.basic_publish(exchange='',
                   routing_key='foo',
-                  body='Hello W0rld!')
+									body='{"command":"create","id":"1345"}')
 print(" [x] Sent 'Hello World!'")
 connection.close()
 

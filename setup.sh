@@ -25,8 +25,11 @@ if [[ "$#" -eq 0 ]];then
 elif [[ "$1" == "help" ]];then shift
   which bash_scripts >/dev/null && bash_scripts show_commands ${0} || true
 
+elif [[ "$1" == "bullet" ]];then shift
+  docker run --name bullet -t -d --link rabbit -v ${self_path}/bullet_server.py:/pybullet_examples/bullet_server.py  nasoym/bullet_container python3 /pybullet_examples/bullet_server.py
+
 elif [[ "$1" == "rabbit" ]];then shift
-  docker run --name rabbit -d  -P --entrypoint "/bin/bash" rabbitmq:3-management -c 'rabbitmq-plugins enable --offline rabbitmq_web_stomp ;docker-entrypoint.sh rabbitmq-server'
+  docker run --name rabbit -d -P --entrypoint "/bin/bash" rabbitmq:3-management -c 'rabbitmq-plugins enable --offline rabbitmq_web_stomp ;docker-entrypoint.sh rabbitmq-server'
 
 elif [[ "$1" == "socat" ]];then shift
   docker run --name socat -d --link rabbit -p 8080:8080 alpine /bin/sh -c "apk update; apk add socat; socat TCP-LISTEN:8080,fork TCP:rabbit:15674"
