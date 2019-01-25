@@ -26,16 +26,20 @@ elif [[ "$1" == "help" ]];then shift
   which bash_scripts >/dev/null && bash_scripts show_commands ${0} || true
 
 elif [[ "$1" == "bullet" ]];then shift
+  docker rm -vf bullet || true
   docker run --name bullet -t -d --link rabbit -v ${self_path}/bullet_server.py:/pybullet_examples/bullet_server.py  nasoym/bullet_container python3 /pybullet_examples/bullet_server.py
 
 elif [[ "$1" == "rabbit" ]];then shift
+  docker rm -vf rabbit || true
   docker run --name rabbit -d -P --entrypoint "/bin/bash" rabbitmq:3-management -c 'rabbitmq-plugins enable --offline rabbitmq_web_stomp ;docker-entrypoint.sh rabbitmq-server'
 
 elif [[ "$1" == "socat" ]];then shift
   docker run --name socat -d --link rabbit -p 8080:8080 alpine /bin/sh -c "apk update; apk add socat; socat TCP-LISTEN:8080,fork TCP:rabbit:15674"
 
-elif [[ "$1" == "create_queue" ]];then shift
+elif [[ "$1" == "create_queues" ]];then shift
   curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/foo"
+  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/updates"
+  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/commands"
 
 elif [[ "$1" == "message" ]];then shift
   curl -i -s -XPOST --data-binary '{"properties":{},"routing_key":"foo","payload":"Hello World","payload_encoding":"string"}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
@@ -47,27 +51,35 @@ elif [[ "$1" == "message" ]];then shift
 #     -u "guest:guest" \
 #     "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
 
-elif [[ "$1" == "test" ]];then shift
+# elif [[ "$1" == "test" ]];then shift
+elif [[ "$1" == "json_to_queue" ]];then shift
 #   echo '{"properties":{"content_type":"application/json"},"routing_key":"foo","payload":"[\"44-dkddkkddksjsldkjslkdf\"]","payload_encoding":"string"}' \
 #   echo '{"properties":{"content_type":"application/json"},"routing_key":"foo","payload":"[\"44-dkddkkddksjsldkjslkdf\"]","payload_encoding":"string"}' \
 #
 #   jq -n '{properties:{content_type:"application/json"},routing_key:"foo",payload_encoding:"string",payload:.}'
 #
 # jq -c -n '{a:"44"}' 
+  : ${routing_key:="commands"}
+
   jq -c . \
-  | jq -R -c '{properties:{content_type:"application/json"},routing_key:"foo",payload_encoding:"string",payload:.}' \
+  | jq --arg routing_key "${routing_key}" -R -c '{properties:{content_type:"application/json"},routing_key:$routing_key,payload_encoding:"string",payload:.}' \
   | curl -i -s \
     -XPOST \
     --data-binary @- \
     -u "guest:guest" \
     "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
 
+  # jq -c -n '{command:"create",id:2345}' \
+  #   | jq -c -R '{properties:{},routing_key:"commands",payload:.,payload_encoding:"string"}' \
+  #   | curl -i -s -XPOST --data-binary @- -u "guest:guest" "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
+
+
 elif [[ "$1" == "all" ]];then shift
   docker rm -vf rabbit socat || true
   ${0} rabbit
   ${0} socat
   sleep 20
-  ${0} create_queue
+  ${0} create_queues
   sleep 5
   browser_open_url ${self_path}/test2.html
   ${0} message

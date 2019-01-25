@@ -19,13 +19,14 @@ connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 
 def callback(ch, method, properties, body):
-  print(" [x] Received %r" % body)
+  # print(" [x] Received %r" % body)
+  print(body.decode('UTF-8'))
 
 
 # print(' [*] Waiting for messages. To exit press CTRL+C')
 
 channel.basic_consume(callback,
-											queue='foo',
+											queue='updates',
 											no_ack=True)
 channel.start_consuming()
 
