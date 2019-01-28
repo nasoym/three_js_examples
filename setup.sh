@@ -41,6 +41,9 @@ elif [[ "$1" == "create_queues" ]];then shift
   curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/updates"
   curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/commands"
 
+elif [[ "$1" == "listen" ]];then shift
+  rabbit_port="$(docker port rabbit 5672 | sed 's/.*://g')" python3 ${self_path}/python_pika_listen.py
+
 elif [[ "$1" == "message" ]];then shift
   curl -i -s -XPOST --data-binary '{"properties":{},"routing_key":"foo","payload":"Hello World","payload_encoding":"string"}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
 
