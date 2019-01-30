@@ -66,7 +66,8 @@ def rabbit_get_queue(connection,pybullet, rabbit_queue):
       elif shape == "box":
         size = json_body.get("radius",[1,1,1])
         box_geom = pybullet.createCollisionShape(pybullet.GEOM_BOX,halfExtents=size)
-        box = pybullet.createMultiBody(mass,box_geom,-1,basePosition,baseOrientation)
+        # box = pybullet.createMultiBody(baseMass=mass,baseCollisionShapeIndex=box_geom,-1,basePosition=basePosition,baseOrientation=baseOrientation)
+        box = pybullet.createMultiBody(baseMass=mass,baseCollisionShapeIndex=box_geom,basePosition=basePosition,baseOrientation=baseOrientation)
         pybullet.addUserData(box,key="type",value="box")
         pybullet.addUserData(box,"id",body_id)
         pybullet.addUserData(box,"size",str(size))
@@ -83,12 +84,14 @@ def rabbit_get_queue(connection,pybullet, rabbit_queue):
       if found_id == -1:
         print("body id not found: ",body_id)
       else:
-        collision_ids = pybullet.getCollisionShapeData(found_id,-1)
-        for collision_id in collision_ids:
-          print("remove collision: ",collision_id[0])
-          pybullet.removeCollisionShape(collision_id[0])
-        print("remove: ",body_id," - ",found_id)
-        pybullet.removeBody(found_id)
+        # collision_ids = pybullet.getCollisionShapeData(found_id,-1)
+        # for collision_id in collision_ids:
+        #   print("remove collision: ",collision_id[0])
+        #   pybullet.removeCollisionShape(collision_id[0])
+        print("remove: ",body_id," - ",found_id," - ",type(found_id))
+        body_unique_id = pybullet.getBodyUniqueId(found_id)
+        print("remove: ",body_id," - ",body_unique_id," - ",type(body_unique_id))
+        pybullet.removeBody(body_unique_id)
 
 # In [3]: pybullet.removeBody
 #                         removeAllUserDebugItems() removeConstraint()
@@ -102,25 +105,26 @@ def pybullet_report(pybullet,connection,rabbit_queue):
   # print("update numBodies: " , pybullet.getNumBodies())
   for id in range(0, pybullet.getNumBodies()):
     # print("id: ", id)
+    body_unique_id = pybullet.getBodyUniqueId(id)
 
     data = {}
     data["command"] = "update"
     channel = connection.channel()
     # channel.queue_declare(queue='hello')
 
-    userdata_id = pybullet.getUserDataId(id,"id")
+    userdata_id = pybullet.getUserDataId(body_unique_id,"id")
     if userdata_id != -1:
       data["id"] = pybullet.getUserData(userdata_id).decode('UTF-8')
 
-    userdata_id = pybullet.getUserDataId(id,"type")
+    userdata_id = pybullet.getUserDataId(body_unique_id,"type")
     if userdata_id != -1:
       data["type"] = pybullet.getUserData(userdata_id).decode('UTF-8')
 
-    userdata_id = pybullet.getUserDataId(id,"size")
+    userdata_id = pybullet.getUserDataId(body_unique_id,"size")
     if userdata_id != -1:
       data["size"] = json.loads(pybullet.getUserData(userdata_id).decode('UTF-8'))
 
-    pos,rot = pybullet.getBasePositionAndOrientation(id)
+    pos,rot = pybullet.getBasePositionAndOrientation(body_unique_id)
     data["pos"] = pos
     data["rot"] = rot
     
