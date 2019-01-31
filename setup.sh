@@ -37,9 +37,9 @@ elif [[ "$1" == "socat" ]];then shift
   docker run --name socat -d --link rabbit -p 8080:8080 alpine /bin/sh -c "apk update; apk add socat; socat TCP-LISTEN:8080,fork TCP:rabbit:15674"
 
 elif [[ "$1" == "create_queues" ]];then shift
-  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/foo"
-  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/updates"
-  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/commands"
+  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":false,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/foo"
+  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":false,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/updates"
+  curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":false,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/commands"
 
 elif [[ "$1" == "listen" ]];then shift
   rabbit_port="$(docker port rabbit 5672 | sed 's/.*://g')" python3 ${self_path}/python_pika_listen.py
