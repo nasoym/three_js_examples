@@ -82,7 +82,7 @@
       // camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), degInRad(90));
       // camera.rotation.order = 'YXZ';
       // camera.up = new THREE.Vector3(0, 0, 1);  
-      camera.position.set(10,10,10);
+      camera.position.set(30,30,30);
       camera.up = new THREE.Vector3(0,0,1);
       camera.lookAt(new THREE.Vector3(0,0,0));
 
@@ -120,24 +120,40 @@
       // var cube = new THREE.Mesh( geometry, material );
       // scene.add( cube );
 
-        var material = new THREE.MeshLambertMaterial({color: 0x55B663});
+        // var material = new THREE.MeshLambertMaterial({color: 0x55B663});
+        // var material = new THREE.MeshPhongMaterial({color: 0x55B663});
+        var material = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
+        var material2 = new THREE.MeshBasicMaterial({color: 0x050603, wireframe: true,wireframeLinewidth:3});
 
-				cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), new THREE.MeshLambertMaterial({color: 0x0000ee}));
+				// cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
+				cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
         cube.position.set(0, 0, 20);
+        cube.scale.set(1,1,1);
+        cube.quaternion.set(0,0,0,1);
 				scene.add( cube );
 
-				cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), new THREE.MeshLambertMaterial({color: 0x00ee00}));
+				// cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
+				cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
         cube.position.set(0, 0, 10);
+        cube.scale.set(1,1,1);
+        cube.quaternion.set(0,0,0,1);
 				scene.add( cube );
 
-				cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), new THREE.MeshLambertMaterial({color: 0xff0000}));
-        cube.position.set(0, 0, 0);
-				scene.add( cube );
+				// cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
+				cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
+        cube.position.set(0, 0, 5);
+        cube.scale.set(1,5,1);
+        cube.quaternion.set(0,0,0,1);
         cube.userData = { "foo" : "bla" };
+        cube.name="foo";
+				scene.add( cube );
 
 
-				cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), new THREE.MeshLambertMaterial({color: 0xff0000}));
+				// cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
+				cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
         cube.position.set(0, 10, 0);
+        cube.scale.set(1,1,1);
+        cube.quaternion.set(0,0,0,1);
 				scene.add( cube );
 
         // var plane = new THREE.Mesh(new THREE.PlaneGeometry( 2000, 2000 ),material);
@@ -146,6 +162,14 @@
         plane.quaternion.set(0,0,0,1);
         scene.add(plane);
 
+        console.log("object foo ", scene.getObjectByName("foo"));
+
+
+        scene.traverse (function (object) {
+          if (object instanceof THREE.Mesh) {
+            console.log("---: ",object);
+          }
+        });
 
 
       // Add OrbitControls so that we can pan around with the mouse.
