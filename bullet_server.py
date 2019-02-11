@@ -4,6 +4,7 @@ import time
 import pika
 import json
 import os
+import copy
 
 def bullet_setup():
   print("bullet setup")
@@ -103,43 +104,47 @@ def rabbit_get_queue(connection,pybullet, rabbit_queue):
 # ./examples/pybullet/gym/pybullet_envs/examples/testBike.py:27:  p.changeDynamics(plane,-1, mass=20,lateralFriction=1, linearDamping=0, angularDamping=0)
 
 
+
+def pybullet_get_body_data(pybullet,body_unique_id):
+  data = {}
+  data["command"] = "update"
+
+  # for user_data_index in range(1, pybullet.getNumUserData(body_unique_id)+1):
+  #   # print("userdata info: ", user_data_index, " - ", pybullet.getUserDataInfo(body_unique_id,user_data_index))
+  #   userDataInfo = pybullet.getUserDataInfo(body_unique_id,user_data_index)
+  #   # print("userdata data: ", pybullet.getUserData(userDataInfo[0]).decode('UTF-8'))
+  #   # data[userDataInfo[1].decode('UTF-8')] = pybullet.getUserData(userDataInfo[0]).decode('UTF-8')
+  #   # data[copy.copy(userDataInfo[1].decode('UTF-8'))] = "a"
+  #   data["u"] = "a"
+
+  userdata_id = pybullet.getUserDataId(body_unique_id,"id")
+  if userdata_id != -1:
+    data["id"] = pybullet.getUserData(userdata_id).decode('UTF-8')
+
+  userdata_id = pybullet.getUserDataId(body_unique_id,"type")
+  if userdata_id != -1:
+    data["type"] = pybullet.getUserData(userdata_id).decode('UTF-8')
+
+  userdata_id = pybullet.getUserDataId(body_unique_id,"size")
+  if userdata_id != -1:
+    data["size"] = json.loads(pybullet.getUserData(userdata_id).decode('UTF-8'))
+
+  pos,rot = pybullet.getBasePositionAndOrientation(body_unique_id)
+  data["pos"] = pos
+  data["rot"] = rot
+  return data
+
 def pybullet_report(pybullet,connection,rabbit_queue):
   # print("update numBodies: " , pybullet.getNumBodies())
+  body_data = []
   for id in range(0, pybullet.getNumBodies()):
-    # print("id: ", id)
     body_unique_id = pybullet.getBodyUniqueId(id)
+    body_data.append(pybullet_get_body_data(pybullet,body_unique_id))
 
-    data = {}
-    data["command"] = "update"
-    channel = connection.channel()
-    # channel.queue_declare(queue='hello')
-    print("userdata num: ", pybullet.getNumUserData(body_unique_id))
-    for user_data_index in range(1, pybullet.getNumUserData(body_unique_id)+1):
-      print("userdata info: ", user_data_index, " - ", pybullet.getUserDataInfo(body_unique_id,user_data_index))
-      userDataInfo = pybullet.getUserDataInfo(body_unique_id,user_data_index)
-      print("userdata data: ", pybullet.getUserData(userDataInfo[0]).decode('UTF-8'))
-      data[userDataInfo[1].decode('UTF-8')] = pybullet.getUserData(userDataInfo[0]).decode('UTF-8')
-    # print("userdata info 1: ", pybullet.getUserDataInfo(body_unique_id,1))
-    # print("userdata info 0: ", pybullet.getUserDataInfo(body_unique_id,0))
-    # userdata_id = pybullet.getUserDataId(body_unique_id,"id")
-    # if userdata_id != -1:
-    #   data["id"] = pybullet.getUserData(userdata_id).decode('UTF-8')
-    #
-    # userdata_id = pybullet.getUserDataId(body_unique_id,"type")
-    # if userdata_id != -1:
-    #   data["type"] = pybullet.getUserData(userdata_id).decode('UTF-8')
-    #
-    # userdata_id = pybullet.getUserDataId(body_unique_id,"size")
-    # if userdata_id != -1:
-    #   data["size"] = json.loads(pybullet.getUserData(userdata_id).decode('UTF-8'))
-
-    pos,rot = pybullet.getBasePositionAndOrientation(body_unique_id)
-    data["pos"] = pos
-    data["rot"] = rot
-    
-    channel.basic_publish(exchange='',
-                      routing_key=rabbit_queue,
-                      body=json.dumps(data))
+  channel = connection.channel()
+  channel.basic_publish(exchange='',
+                    routing_key=rabbit_queue,
+                    body=json.dumps(body_data))
 
 
 rabbit_command_queue = os.getenv('rabbit_queue', "commands")
@@ -147,13 +152,13 @@ rabbit_updates_queue = os.getenv('rabbit_queue', "updates")
 connection = rabbit_setup()
 bullet_setup()
 
-
 while True:
   rabbit_get_queue(connection, pybullet, rabbit_command_queue)
   pybullet.stepSimulation()
   pybullet_report(pybullet,connection,rabbit_updates_queue)
   time.sleep(0.1)
 
+print("closing")
 connection.close()
 pybullet.disconnect()
 
