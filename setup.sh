@@ -14,6 +14,12 @@ trap 'status="$?"; echo "$(basename $0): status:${status} LINENO:${LINENO} BASH_
 self="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd -P)/$(basename "$0")"
 self_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+  if which timeout >/dev/null ; then
+    timeout_cmd="timeout"
+  elif which gtimeout >/dev/null ; then
+    timeout_cmd="gtimeout"
+  fi
+
 while getopts "a:h?" options; do case $options in
   a) a="$OPTARG" ;;
   h|?) help; exit ;;
@@ -37,7 +43,7 @@ elif [[ "$1" == "socat" ]];then shift
   docker rm -vf socat || true
   docker run --name socat -d --link rabbit -p 8080:8080 alpine /bin/sh -c "apk update; apk add socat; socat TCP-LISTEN:8080,fork TCP:rabbit:15674"
 
-elif [[ "$1" == "create_queues" ]];then shift
+elif [[ "$1" == "queues" ]];then shift
   curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":false,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/foo"
   curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":true,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/updates"
   curl -i -s -XPUT --data-binary '{"auto_delete":false,"durable":false,"arguments":{}}' -u "guest:guest" "http://$(docker port rabbit 15672)/api/queues/%2F/commands"
@@ -79,14 +85,15 @@ elif [[ "$1" == "json_to_queue" ]];then shift
 
 
 elif [[ "$1" == "all" ]];then shift
-  docker rm -vf rabbit socat || true
   ${0} rabbit
+  sleep 10
   ${0} socat
-  sleep 20
-  ${0} create_queues
-  sleep 5
-  browser_open_url ${self_path}/test2.html
-  ${0} message
+  ${timeout_cmd} 10 bash -c "until ${0} queues; do echo try again; sleep 1; done "
+  ${0} bullet
+  sleep 10
+  jq --arg id "${RANDOM}" -c -n '{command:"create",shape:"box",id:$id}' \
+    | ${0} json_to_queue
+
 
 else
   echo "unknown command: $@" >&2
