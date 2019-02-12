@@ -1,6 +1,5 @@
 // Set up the scene, camera, and renderer as global variables.
 var scene, camera, renderer;
-var cube ;
 
 // Renders the scene and updates the render as needed.
 function animate() {
@@ -11,12 +10,10 @@ function animate() {
   // Render the scene.
   renderer.render(scene, camera);
   controls.update();
-
 }
 
 // Sets up the scene.
 function init() {
-
   // Create the scene and set the scene size.
   scene = new THREE.Scene();
   var WIDTH = window.innerWidth,
@@ -60,57 +57,16 @@ function init() {
   light.position.set(100,100,100);
   scene.add(light);
 
-  // // Load in the mesh and add it to the scene.
-  // var loader = new THREE.JSONLoader();
-  // loader.load( "models/treehouse_logo.js", function(geometry){
-  //   var material = new THREE.MeshLambertMaterial({color: 0x55B663});
-  //   mesh = new THREE.Mesh(geometry, material);
-  //   scene.add(mesh);
-  // });
+  // Add OrbitControls so that we can pan around with the mouse.
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+}
 
-  // var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-  // var geometry = new THREE.BoxGeometry(700, 700, 700, 10, 10, 10);
+function create_body(id) {
+  // // var material = new THREE.MeshLambertMaterial({color: 0x55B663});
+  // // var material = new THREE.MeshPhongMaterial({color: 0x55B663});
+  // var material = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
+  // var material2 = new THREE.MeshBasicMaterial({color: 0x050603, wireframe: true,wireframeLinewidth:3});
 
-  // var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-  // var cube = new THREE.Mesh( geometry, material );
-  // scene.add( cube );
-
-    // // var material = new THREE.MeshLambertMaterial({color: 0x55B663});
-    // // var material = new THREE.MeshPhongMaterial({color: 0x55B663});
-    // var material = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
-    // var material2 = new THREE.MeshBasicMaterial({color: 0x050603, wireframe: true,wireframeLinewidth:3});
-    //
-    // // cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
-    // cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
-    // cube.position.set(0, 0, 20);
-    // cube.scale.set(1,1,1);
-    // cube.quaternion.set(0,0,0,1);
-    // scene.add( cube );
-    //
-    // // cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
-    // cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
-    // cube.position.set(0, 0, 10);
-    // cube.scale.set(1,1,1);
-    // cube.quaternion.set(0,0,0,1);
-    // scene.add( cube );
-    //
-    // // cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
-    // cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
-    // cube.position.set(0, 0, 5);
-    // cube.scale.set(1,5,1);
-    // cube.quaternion.set(0,0,0,1);
-    // cube.userData = { "foo" : "bla" };
-    // cube.name="foo";
-    // scene.add( cube );
-    //
-    //
-    // // cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), material);
-    // cube = THREE.SceneUtils.createMultiMaterialObject( new THREE.CubeGeometry( 1, 1, 1 ), [material,material2]);
-    // cube.position.set(0, 10, 0);
-    // cube.scale.set(1,1,1);
-    // cube.quaternion.set(0,0,0,1);
-    // scene.add( cube );
-    //
     // // var plane = new THREE.Mesh(new THREE.PlaneGeometry( 2000, 2000 ),material);
     // // var plane = new THREE.Mesh(new THREE.PlaneGeometry(60,40,1,1),material);
     // var plane = new THREE.Mesh(new THREE.PlaneGeometry(10,10,1,1),material);
@@ -120,28 +76,14 @@ function init() {
     // console.log("object foo ", scene.getObjectByName("foo"));
 
 
-    scene.traverse (function (object) {
-      if (object instanceof THREE.Mesh) {
-        console.log("---: ",object);
-      }
-    });
-
-
-  // Add OrbitControls so that we can pan around with the mouse.
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
-
-}
-
-function create_body(id) {
   var material_color = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
   var material_wireframe = new THREE.MeshBasicMaterial({color: 0x050603, wireframe: true, wireframeLinewidth:3});
 
   console.log("create body with id: ", id);
   body = THREE.SceneUtils.createMultiMaterialObject( 
-    new THREE.CubeGeometry( 1, 1, 1 ), [material_color,material_wireframe]);
-  // body.position.set(0, 0, 5);
-  // body.scale.set(1,5,1);
-  // body.quaternion.set(0,0,0,1);
+      new THREE.CubeGeometry( 1, 1, 1 ), 
+      [material_color,material_wireframe]
+    );
   // body.userData = { "foo" : "bla" };
   // body.name="foo";
   body.id = id;
@@ -175,17 +117,19 @@ function update_body(data) {
   if (data.hasOwnProperty("size")) {
     body.scale.set(data["size"][0],data["size"][1],data["size"][2]);
   }
-
-  // body.position.set(0, 0, 5);
-  // body.scale.set(1,5,1);
-  // body.quaternion.set(0,0,0,1);
-
 }
 
 function update_bodies(data) {
   for (i in data) {
     update_body(data[i]);
   }
+
+    // scene.traverse (function (object) {
+    //   if (object instanceof THREE.Mesh) {
+    //     console.log("---: ",object);
+    //   }
+    // });
+
 }
 
 function test_setup() {
@@ -232,10 +176,9 @@ function setup_update_listener() {
   var client = Stomp.client('ws://localhost:8080/ws');
 
   var on_connect = function(x) {
-      id = client.subscribe("/queue/updates", function(d) {
-        // console.log("::: " , JSON.parse(d.body));
-        update_bodies(JSON.parse(d.body));
-      });
+    id = client.subscribe("/queue/updates", function(d) {
+      update_bodies(JSON.parse(d.body));
+    });
   };
   var on_error =  function() {
     console.log('error');

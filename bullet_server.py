@@ -156,8 +156,8 @@ while True:
   rabbit_get_queue(connection, pybullet, rabbit_command_queue)
   pybullet.stepSimulation()
   pybullet_report(pybullet,connection,rabbit_updates_queue)
-  # time.sleep(0.1)
-  time.sleep(1)
+  time.sleep(0.1)
+  #time.sleep(1)
 
 print("closing")
 connection.close()

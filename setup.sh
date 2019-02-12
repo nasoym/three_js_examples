@@ -70,6 +70,7 @@ elif [[ "$1" == "json_to_queue" ]];then shift
 #
 # jq -c -n '{a:"44"}' 
   : ${routing_key:="commands"}
+  : ${host:="$(docker port rabbit 15672)"}
 
   jq -c . \
   | jq --arg routing_key "${routing_key}" -R -c '{properties:{content_type:"application/json"},routing_key:$routing_key,payload_encoding:"string",payload:.}' \
@@ -77,7 +78,7 @@ elif [[ "$1" == "json_to_queue" ]];then shift
     -XPOST \
     --data-binary @- \
     -u "guest:guest" \
-    "http://$(docker port rabbit 15672)/api/exchanges/%2F//publish"
+    "http://${host}/api/exchanges/%2F//publish"
 
   # jq -c -n '{command:"create",id:2345}' \
   #   | jq -c -R '{properties:{},routing_key:"commands",payload:.,payload_encoding:"string"}' \
