@@ -93,7 +93,13 @@ elif [[ "$1" == "all" ]];then shift
   sleep 10
   jq --arg id "${RANDOM}" -c -n '{command:"create",shape:"box",id:$id}' \
     | ${0} json_to_queue
+  jq --arg id "${RANDOM}" -c -n '{command:"create",shape:"box",id:$id}' \
+    | ${0} json_to_queue
 
+elif [[ "$1" == "clear" ]];then shift
+  docker rm -vf socat || true
+  docker rm -vf rabbit || true
+  docker rm -vf bullet || true
 
 else
   echo "unknown command: $@" >&2

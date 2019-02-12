@@ -2,47 +2,17 @@
 var scene, camera, renderer;
 var cube ;
 
-document.onreadystatechange = function () {
-  if (document.readyState === "complete") {
-    init();
-    animate();
-    // var ws = new WebSocket('ws://localhost:8765');
-    // ws.addEventListener('message', function (event) {
-    //     console.log('Message from server ', event.data);
-    // });
+// Renders the scene and updates the render as needed.
+function animate() {
 
+  // Read more about requestAnimationFrame at http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+  requestAnimationFrame(animate);
+  
+  // Render the scene.
+  renderer.render(scene, camera);
+  controls.update();
 
-    // Stomp.js boilerplate
-    // var client = Stomp.client('ws://' + window.location.hostname + ':15674/ws');
-    // var client = Stomp.client('ws://localhost:32784/ws');
-    var client = Stomp.client('ws://localhost:8080/ws');
-    // client.debug = pipe('#second');
-
-    var on_connect = function(x) {
-        // id = client.subscribe("/topic/test", function(d) {
-        id = client.subscribe("/queue/updates", function(d) {
-            // console.log("::: " + d);
-            // console.log("::: " , d.body);
-            // console.log("::: " , typeof JSON.parse(d.body));
-            console.log("::: " , JSON.parse(d.body));
-            //  print_first(d.body);
-            // console.log("::: " , cube);
-            // console.log("::: " , cube.position);
-
-            // var body = JSON.parse(d.body);
-            // cube.position = new THREE.Vector3(body.pos[0],body.pos[1],body.pos[2]);
-            // console.log("::: " , cube.position);
-            // console.log("::: " , cube);
-
-        });
-    };
-    var on_error =  function() {
-      console.log('error');
-    };
-    client.connect('guest', 'guest', on_connect, on_error, '/');
-
-  }
-};
+}
 
 // Sets up the scene.
 function init() {
@@ -162,17 +132,124 @@ function init() {
 
 }
 
+function create_body(id) {
+  var material_color = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
+  var material_wireframe = new THREE.MeshBasicMaterial({color: 0x050603, wireframe: true, wireframeLinewidth:3});
 
-// Renders the scene and updates the render as needed.
-function animate() {
+  console.log("create body with id: ", id);
+  body = THREE.SceneUtils.createMultiMaterialObject( 
+    new THREE.CubeGeometry( 1, 1, 1 ), [material_color,material_wireframe]);
+  // body.position.set(0, 0, 5);
+  // body.scale.set(1,5,1);
+  // body.quaternion.set(0,0,0,1);
+  // body.userData = { "foo" : "bla" };
+  // body.name="foo";
+  body.id = id;
+  scene.add( body );
+  return body;
+}
 
-  // Read more about requestAnimationFrame at http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-  requestAnimationFrame(animate);
-  
-  // Render the scene.
-  renderer.render(scene, camera);
-  controls.update();
+function find_body(id) {
+  return scene.getObjectById(id);
+}
+
+function find_or_create_body(id) {
+  var body = find_body(id);
+  if (typeof body === "undefined") {
+    return create_body(id);
+  }
+  else {
+    console.log("found body for id: ", id, " body: ", body);
+    return body;
+  }
+}
+
+function update_body(data) {
+  var body = find_or_create_body(data["id"]);
+  if (data.hasOwnProperty("pos")) {
+    body.position.set(data["pos"][0],data["pos"][1],data["pos"][2]);
+  }
+  if (data.hasOwnProperty("rot")) {
+    body.quaternion.set(data["rot"][0],data["rot"][1],data["rot"][2],data["rot"][3]);
+  }
+  if (data.hasOwnProperty("size")) {
+    body.scale.set(data["size"][0],data["size"][1],data["size"][2]);
+  }
+
+  // body.position.set(0, 0, 5);
+  // body.scale.set(1,5,1);
+  // body.quaternion.set(0,0,0,1);
 
 }
 
+function update_bodies(data) {
+  for (i in data) {
+    update_body(data[i]);
+  }
+}
+
+function test_setup() {
+  var body;
+  // body = find_or_create_body("foo");
+  // body = find_or_create_body("foo");
+  // body = find_or_create_body("foo");
+  // body = find_or_create_body("foo");
+
+  var data = [
+    {
+      "command": "update",
+      "id": "20340",
+      "type": "box",
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "pos": [
+        0,
+        0,
+        -37.61473446625162
+      ],
+      "rot": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ];
+
+  console.log(data[0]);
+  for (i in data) {
+    update_body(data[i]);
+  }
+
+}
+
+function setup_update_listener() {
+  // Stomp.js boilerplate
+  // var client = Stomp.client('ws://' + window.location.hostname + ':15674/ws');
+  var client = Stomp.client('ws://localhost:8080/ws');
+
+  var on_connect = function(x) {
+      id = client.subscribe("/queue/updates", function(d) {
+        // console.log("::: " , JSON.parse(d.body));
+        update_bodies(JSON.parse(d.body));
+      });
+  };
+  var on_error =  function() {
+    console.log('error');
+  };
+  client.connect('guest', 'guest', on_connect, on_error, '/');
+}
+
+
+document.onreadystatechange = function () {
+  if (document.readyState === "complete") {
+    init();
+    animate();
+    setup_update_listener();
+    // test_setup();
+  }
+};
 
