@@ -6,7 +6,7 @@ import json
 import os
 import copy
 
-sleep_time=0.1
+sleep_time=0.05
 
 def bullet_setup():
   print("bullet setup")
