@@ -113,11 +113,12 @@ elif [[ "$1" == "ec2_setup_rabbit" ]];then shift
   # ec2 ssh ${ec2_host} "docker run --name rabbit -d -P --entrypoint '/bin/bash' rabbitmq:3-management -c 'rabbitmq-plugins enable --offline rabbitmq_web_stomp ;docker-entrypoint.sh rabbitmq-server'"
 
   ec2 ssh ${ec2_host} 'docker rm -vf rabbit || true'
-  ec2 ssh ${ec2_host} "docker run --name rabbit -d -p 15672:15672 -p 15674:15674 activiti/rabbitmq-stomp"
+  ec2 ssh ${ec2_host} "docker run --name rabbit -d -p 5672:5672 -p 15672:15672 -p 15674:15674 activiti/rabbitmq-stomp"
   ${0} ec2_setup_rabbit_ports
 
 elif [[ "$1" == "ec2_setup_rabbit_ports" ]];then shift
   : ${ec2_host:="host"}
+  ec2 port ${ec2_host} 5672
   ec2 port ${ec2_host} 15672
   ec2 port ${ec2_host} 15674
 
@@ -148,13 +149,9 @@ elif [[ "$1" == "ec2_setup_cage" ]];then shift
     '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,-5,5],rot:[-0.5,0.5,0.5,0.5],size:[9.9,9.9,0]}' \
     | host="localhost:15672" ${0} json_to_queue
 
-
-# three_js_examples:jq --arg id "${RANDOM}" -c -n '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,0,0],rot:[0.5,0.5,0.5,0.5],size:[10,10,0]}'  | host="localhost:15672" ./setup.sh json_to_queue
-
-
+  # three_js_examples:jq --arg id "${RANDOM}" -c -n '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,0,0],rot:[0.5,0.5,0.5,0.5],size:[10,10,0]}'  | host="localhost:15672" ./setup.sh json_to_queue
   # jq --arg id "${RANDOM}" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,10],size:[2,2,1]}'  | host="localhost:15672" ${0} json_to_queue
   # jq --arg id "${RANDOM}" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,10],size:[2,2,1]}'  | host="localhost:15672" ${0} json_to_queue
-
 
 else
   echo "unknown command: $@" >&2

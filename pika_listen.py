@@ -1,7 +1,7 @@
-
 import pika
 import os
 import time
+import json
 
 rabbit_host = os.getenv('rabbit_host', "localhost")
 rabbit_port = os.getenv('rabbit_port', 5672)
@@ -15,21 +15,21 @@ parameters = pika.ConnectionParameters(rabbit_host,
                                    credentials)
 connection = pika.BlockingConnection(parameters)
 
-
 channel = connection.channel()
 
 def callback(ch, method, properties, body):
-  # print(" [x] Received %r" % body)
-  print(body.decode('UTF-8'))
+  json_body = json.loads(body.decode('UTF-8'))
+  print(json_body[0]["id"])
+  # print(body.decode('UTF-8'))
 
-
-# print(' [*] Waiting for messages. To exit press CTRL+C')
-
+result = channel.queue_declare(exclusive=True)
+queue_name = result.method.queue
+channel.queue_bind(exchange='updates',queue=queue_name)
 channel.basic_consume(callback,
-											queue='updates',
+											queue=queue_name,
 											no_ack=True)
-channel.start_consuming()
 
+channel.start_consuming()
 	
 connection.close()
 
