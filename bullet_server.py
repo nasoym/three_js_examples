@@ -6,6 +6,8 @@ import json
 import os
 import copy
 
+sleep_time=0.1
+
 def bullet_setup():
   print("bullet setup")
   pybullet.connect(pybullet.DIRECT)
@@ -49,6 +51,7 @@ def getBodyId(pybullet,body_id):
   return -1
 
 def rabbit_get_queue(channel,pybullet, rabbit_queue):
+  global sleep_time
   # print("rabbit get message")
   while True:
     message,properties,body = channel.basic_get(queue="commands", no_ack=True)
@@ -102,6 +105,14 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
         # print("remove: ",body_id," - ",body_unique_id," - ",type(body_unique_id))
         # pybullet.removeBody(body_unique_id)
         pybullet.removeBody(found_id)
+    elif command == "set":
+      key = json_body.get("key","")
+      value = json_body.get("value","")
+      if key == "gravity":
+        pybullet.setGravity(value[0],value[1],value[2])
+      elif key == "sleep_time":
+        sleep_time = value;
+    # elif command == "quit":
 
 # In [3]: pybullet.removeBody
 #                         removeAllUserDebugItems() removeConstraint()
@@ -109,8 +120,6 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
 #                         removeCollisionShape()    removeUserDebugItem()
  
 # ./examples/pybullet/gym/pybullet_envs/examples/testBike.py:27:  p.changeDynamics(plane,-1, mass=20,lateralFriction=1, linearDamping=0, angularDamping=0)
-
-
 
 def pybullet_get_body_data(pybullet,body_unique_id):
   data = {}
@@ -142,7 +151,6 @@ def pybullet_get_body_data(pybullet,body_unique_id):
   return data
 
 def pybullet_report(pybullet,channel,rabbit_queue):
-  # print("update numBodies: " , pybullet.getNumBodies())
   body_data = []
   for id in range(0, pybullet.getNumBodies()):
     body_unique_id = pybullet.getBodyUniqueId(id)
@@ -162,8 +170,7 @@ while True:
   rabbit_get_queue(channel, pybullet, rabbit_command_queue)
   pybullet.stepSimulation()
   pybullet_report(pybullet,channel,rabbit_updates_queue)
-  time.sleep(0.1)
-  #time.sleep(1)
+  time.sleep(sleep_time)
 
 print("closing")
 connection.close()

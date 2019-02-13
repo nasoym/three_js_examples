@@ -127,6 +127,35 @@ elif [[ "$1" == "ec2_setup_bullet" ]];then shift
   ec2 ssh ${ec2_host} 'docker rm -vf bullet || true'
   ec2 ssh ${ec2_host} 'docker run --name bullet -t -d --link rabbit -v $(pwd)/bullet_server.py:/pybullet_examples/bullet_server.py  nasoym/bullet_container python3 /pybullet_examples/bullet_server.py'
 
+elif [[ "$1" == "ec2_setup_cage" ]];then shift
+  : ${ec2_host:="host"}
+  jq --arg id "${RANDOM}" -c -n \
+    '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,0,0],rot:[0,0,0,1],size:[9.9,9.9,0]}' \
+    | host="localhost:15672" ${0} json_to_queue
+  jq --arg id "${RANDOM}" -c -n \
+    '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,0,10],rot:[0,1,0,0],size:[9.9,9.9,0]}' \
+    | host="localhost:15672" ${0} json_to_queue
+  jq --arg id "${RANDOM}" -c -n \
+    '{command:"create",shape:"plane",id:$id,mass:0,pos:[-5,0,5],rot:[0.5,0.5,0.5,0.5],size:[9.9,9.9,0]}' \
+    | host="localhost:15672" ${0} json_to_queue
+  jq --arg id "${RANDOM}" -c -n \
+    '{command:"create",shape:"plane",id:$id,mass:0,pos:[5,0,5],rot:[0.5,-0.5,-0.5,0.5],size:[9.9,9.9,0]}' \
+    | host="localhost:15672" ${0} json_to_queue
+  jq --arg id "${RANDOM}" -c -n \
+    '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,5,5],rot:[0.5,-0.5,0.5,0.5],size:[9.9,9.9,0]}' \
+    | host="localhost:15672" ${0} json_to_queue
+  jq --arg id "${RANDOM}" -c -n \
+    '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,-5,5],rot:[-0.5,0.5,0.5,0.5],size:[9.9,9.9,0]}' \
+    | host="localhost:15672" ${0} json_to_queue
+
+
+# three_js_examples:jq --arg id "${RANDOM}" -c -n '{command:"create",shape:"plane",id:$id,mass:0,pos:[0,0,0],rot:[0.5,0.5,0.5,0.5],size:[10,10,0]}'  | host="localhost:15672" ./setup.sh json_to_queue
+
+
+  # jq --arg id "${RANDOM}" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,10],size:[2,2,1]}'  | host="localhost:15672" ${0} json_to_queue
+  # jq --arg id "${RANDOM}" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,10],size:[2,2,1]}'  | host="localhost:15672" ${0} json_to_queue
+
+
 else
   echo "unknown command: $@" >&2
   exit 1

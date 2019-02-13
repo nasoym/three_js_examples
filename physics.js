@@ -1,43 +1,31 @@
-// Set up the scene, camera, and renderer as global variables.
 var scene, camera, renderer;
 
-// Renders the scene and updates the render as needed.
 function animate() {
-
-  // Read more about requestAnimationFrame at http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
   requestAnimationFrame(animate);
-  
-  // Render the scene.
   renderer.render(scene, camera);
   controls.update();
+  stats.update();
 }
 
-// Sets up the scene.
+function render() {
+  renderer.render( scene, camera );
+}
+
 function init() {
-  // Create the scene and set the scene size.
   scene = new THREE.Scene();
   var WIDTH = window.innerWidth,
       HEIGHT = window.innerHeight;
 
-  // Create a renderer and add it to the DOM.
   renderer = new THREE.WebGLRenderer({antialias:true});
   renderer.setSize(WIDTH, HEIGHT);
   document.body.appendChild(renderer.domElement);
 
-  // Create a camera, zoom it out from the model a bit, and add it to the scene.
   camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 20000);
-  // camera.position.set(0,15,0);
-
-  // camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-  // camera.position.z = 1;
-  // camera.position.y = -5;
   // camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), degInRad(90));
   // camera.rotation.order = 'YXZ';
-  // camera.up = new THREE.Vector3(0, 0, 1);  
   camera.position.set(30,30,30);
   camera.up = new THREE.Vector3(0,0,1);
   camera.lookAt(new THREE.Vector3(0,0,0));
-
   scene.add(camera);
 
   // Create an event listener that resizes the renderer with the browser window.
@@ -49,16 +37,28 @@ function init() {
     camera.updateProjectionMatrix();
   });
 
-  // Set the background color of the scene.
   renderer.setClearColor(new THREE.Color(0x333F47, 1));
 
-  // Create a light, set its position, and add it to the scene.
   var light = new THREE.PointLight(0xffffff);
   light.position.set(100,100,100);
   scene.add(light);
 
-  // Add OrbitControls so that we can pan around with the mouse.
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  // controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+  controls = new THREE.TrackballControls( camera );
+  controls.rotateSpeed = 1.0;
+  controls.zoomSpeed = 1.2;
+  controls.panSpeed = 0.8;
+  controls.noZoom = false;
+  controls.noPan = false;
+  controls.staticMoving = true;
+  controls.dynamicDampingFactor = 0.3;
+  controls.keys = [ 65, 83, 68 ];
+  controls.addEventListener( 'change', render );
+
+  stats = new Stats();
+  document.body.appendChild( stats.dom );
+
 }
 
 function create_body(data) {
@@ -68,7 +68,6 @@ function create_body(data) {
   var id = data["id"];
   var material_color = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
   var material_wireframe = new THREE.MeshBasicMaterial({color: 0x050603, wireframe: true, wireframeLinewidth:3});
-
 
   console.log("create body with id: ", id);
 
@@ -81,14 +80,12 @@ function create_body(data) {
           [material_color,material_wireframe]
         );
     } else if (type === "plane" ) {
-      // var plane = new THREE.Mesh(new THREE.PlaneGeometry( 2000, 2000 ),material);
-      // var plane = new THREE.Mesh(new THREE.PlaneGeometry(60,40,1,1),material);
       console.log("create plane");
+      // 2nd and 3rd argument are the vertical / horizontal segments
       body = THREE.SceneUtils.createMultiMaterialObject( 
-          new THREE.PlaneGeometry( 10, 10 ), 
+          new THREE.PlaneGeometry( 1, 1 ), 
           [material_color,material_wireframe]
         );
-      // body.position.set(0,0,0);
     // } else if (type === "sphere" ) {
     }
   }
@@ -99,17 +96,11 @@ function create_body(data) {
   return body;
 }
 
-function find_body(id) {
-  return scene.getObjectById(id);
-}
-
 function update_body(data) {
-  var body = find_body(data["id"]);
+  var body = scene.getObjectById(data["id"]);
   if (typeof body === "undefined") {
     body = create_body(data);
   }
-  // console.log("use body: ",body);
-  // console.log("use data: ",data);
   if (data.hasOwnProperty("pos")) {
     body.position.set(data["pos"][0],data["pos"][1],data["pos"][2]);
   }
@@ -125,10 +116,6 @@ function update_bodies(data) {
   var all_ids = [];
   scene.traverse (function (object) {
     if (object instanceof THREE.Mesh) {
-    //if (object instanceof THREE.Object3D) {
-      // console.log("---: ",object);
-      // console.log("---: ",object.parent.id);
-      // console.log("---: ", typeof object.parent.id);
       all_ids.push(object.parent.id);
     }
   });
@@ -136,54 +123,14 @@ function update_bodies(data) {
   for (i in data) {
     update_body(data[i]);
     id = data[i]["id"];
-    // console.log("id: ",data[i]["id"] );
     all_ids = all_ids.filter(function(val,i,a) {return val !== id;})
   }
 
   // console.log("unused ids: ",all_ids);
-
   for (i in all_ids) {
     console.log("remove : ",all_ids[i]);
     scene.remove(scene.getObjectById(all_ids[i]));
   }
-}
-
-function test_setup() {
-  var body;
-  // body = find_or_create_body("foo");
-  // body = find_or_create_body("foo");
-  // body = find_or_create_body("foo");
-  // body = find_or_create_body("foo");
-
-  var data = [
-    {
-      "command": "update",
-      "id": "20340",
-      "type": "box",
-      "size": [
-        1,
-        1,
-        1
-      ],
-      "pos": [
-        0,
-        0,
-        -37.61473446625162
-      ],
-      "rot": [
-        0,
-        0,
-        0,
-        1
-      ]
-    }
-  ];
-
-  console.log(data[0]);
-  for (i in data) {
-    update_body(data[i]);
-  }
-
 }
 
 function setup_update_listener(address,exchange_name) {
@@ -201,7 +148,6 @@ function setup_update_listener(address,exchange_name) {
   };
   client.connect('guest', 'guest', on_connect, on_error, '/');
 }
-
 
 document.onreadystatechange = function () {
   if (document.readyState === "complete") {
@@ -226,16 +172,6 @@ document.onreadystatechange = function () {
     init();
     animate();
     setup_update_listener(host + ":" + port, exchange_name);
-
-    // var material = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
-    // var plane = new THREE.Mesh(new THREE.PlaneGeometry(10,10,1,1),material);
-    //
-    // plane.position.set(0,0,0);
-    // plane.quaternion.set(0,0,0,1);
-    // plane.scale.set(1,1,1);
-    //
-    // scene.add(plane);
-    // test_setup();
   }
 };
 
