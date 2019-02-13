@@ -102,6 +102,27 @@ elif [[ "$1" == "clear" ]];then shift
   docker rm -vf rabbit || true
   docker rm -vf bullet || true
 
+elif [[ "$1" == "ec2_teardown" ]];then shift
+  : ${ec2_host:="host"}
+  ec2 ssh ${ec2_host} 'docker rm -vf rabbit || true'
+  ec2 ssh ${ec2_host} 'docker rm -vf bullet || true'
+  ec2 port-list | awk '{print $1}' | xargs --no-run-if-empty kill
+
+elif [[ "$1" == "ec2_setup_rabbit" ]];then shift
+  : ${ec2_host:="host"}
+  # ec2 ssh ${ec2_host} "docker run --name rabbit -d -P --entrypoint '/bin/bash' rabbitmq:3-management -c 'rabbitmq-plugins enable --offline rabbitmq_web_stomp ;docker-entrypoint.sh rabbitmq-server'"
+
+  ec2 ssh ${ec2_host} 'docker rm -vf rabbit || true'
+  ec2 ssh ${ec2_host} "docker run --name rabbit -d -p 15672:15672 -p 15674:15674 activiti/rabbitmq-stomp"
+  ec2 port ${ec2_host} 15672
+  ec2 port ${ec2_host} 15674
+
+elif [[ "$1" == "ec2_setup_bullet" ]];then shift
+  : ${ec2_host:="host"}
+  ec2 scp ${ec2_host} bullet_server.py bullet_server.py
+  ec2 ssh ${ec2_host} 'docker rm -vf bullet || true'
+  ec2 ssh ${ec2_host} 'docker run --name bullet -t -d --link rabbit -v $(pwd)/bullet_server.py:/pybullet_examples/bullet_server.py  nasoym/bullet_container python3 /pybullet_examples/bullet_server.py'
+
 else
   echo "unknown command: $@" >&2
   exit 1

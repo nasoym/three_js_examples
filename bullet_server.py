@@ -31,7 +31,13 @@ def rabbit_setup():
                                      '/',
                                      credentials)
   connection = pika.BlockingConnection(parameters)
-  return connection
+  channel = connection.channel()
+  channel.queue_declare(queue="commands")
+  channel.exchange_declare(
+      exchange="updates",
+      exchange_type="fanout"
+      )
+  return (connection,channel)
 
 def getBodyId(pybullet,body_id):
   for id in range(0, pybullet.getNumBodies()):
@@ -42,10 +48,10 @@ def getBodyId(pybullet,body_id):
         return body_unique_id
   return -1
 
-def rabbit_get_queue(connection,pybullet, rabbit_queue):
+def rabbit_get_queue(channel,pybullet, rabbit_queue):
   # print("rabbit get message")
   while True:
-    message,properties,body = connection.channel().basic_get(queue=rabbit_queue, no_ack=True)
+    message,properties,body = channel.basic_get(queue="commands", no_ack=True)
     if body is None:
       break
     print("body: " , body.decode('UTF-8'))
@@ -134,28 +140,27 @@ def pybullet_get_body_data(pybullet,body_unique_id):
   data["rot"] = rot
   return data
 
-def pybullet_report(pybullet,connection,rabbit_queue):
+def pybullet_report(pybullet,channel,rabbit_queue):
   # print("update numBodies: " , pybullet.getNumBodies())
   body_data = []
   for id in range(0, pybullet.getNumBodies()):
     body_unique_id = pybullet.getBodyUniqueId(id)
     body_data.append(pybullet_get_body_data(pybullet,body_unique_id))
 
-  channel = connection.channel()
-  channel.basic_publish(exchange='',
-                    routing_key=rabbit_queue,
+  channel.basic_publish(exchange='updates',
+                    routing_key='',
                     body=json.dumps(body_data))
 
 
 rabbit_command_queue = os.getenv('rabbit_queue', "commands")
 rabbit_updates_queue = os.getenv('rabbit_queue', "updates")
-connection = rabbit_setup()
+connection,channel = rabbit_setup()
 bullet_setup()
 
 while True:
-  rabbit_get_queue(connection, pybullet, rabbit_command_queue)
+  rabbit_get_queue(channel, pybullet, rabbit_command_queue)
   pybullet.stepSimulation()
-  pybullet_report(pybullet,connection,rabbit_updates_queue)
+  pybullet_report(pybullet,channel,rabbit_updates_queue)
   time.sleep(0.1)
   #time.sleep(1)
 

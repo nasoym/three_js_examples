@@ -101,7 +101,7 @@ function find_or_create_body(id) {
     return create_body(id);
   }
   else {
-    console.log("found body for id: ", id, " body: ", body);
+    // console.log("found body for id: ", id, " body: ", body);
     return body;
   }
 }
@@ -173,10 +173,12 @@ function test_setup() {
 function setup_update_listener() {
   // Stomp.js boilerplate
   // var client = Stomp.client('ws://' + window.location.hostname + ':15674/ws');
-  var client = Stomp.client('ws://localhost:8080/ws');
+  // var client = Stomp.client('ws://localhost:8080/ws');
+  var client = Stomp.client('ws://localhost:15674/ws');
+  client.debug = function(a,b) { };
 
   var on_connect = function(x) {
-    id = client.subscribe("/queue/updates", function(d) {
+    id = client.subscribe("/exchange/updates", function(d) {
       update_bodies(JSON.parse(d.body));
     });
   };
