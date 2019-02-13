@@ -114,6 +114,10 @@ elif [[ "$1" == "ec2_setup_rabbit" ]];then shift
 
   ec2 ssh ${ec2_host} 'docker rm -vf rabbit || true'
   ec2 ssh ${ec2_host} "docker run --name rabbit -d -p 15672:15672 -p 15674:15674 activiti/rabbitmq-stomp"
+  ${0} ec2_setup_rabbit_ports
+
+elif [[ "$1" == "ec2_setup_rabbit_ports" ]];then shift
+  : ${ec2_host:="host"}
   ec2 port ${ec2_host} 15672
   ec2 port ${ec2_host} 15674
 

@@ -63,17 +63,9 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
       basePosition = json_body.get("pos",[0,0,10])
       baseOrientation = json_body.get("rot",[0,0,0,1])
       mass = json_body.get("mass",1)
-      if shape == "sphere":
-        radius = json_body.get("radius",1)
-        sphere_geom = pybullet.createCollisionShape(pybullet.GEOM_SPHERE,radius=radius)
-        sphere = pybullet.createMultiBody(mass,sphere_geom,-1,basePosition,baseOrientation)
-        pybullet.addUserData(sphere,key="type",value="sphere")
-        pybullet.addUserData(sphere,"id",body_id)
-        pybullet.addUserData(sphere,"size",str([radius]))
-        print("create sphere: ", body_id)
-      elif shape == "box":
-        size = json_body.get("radius",[1,1,1])
-        box_geom = pybullet.createCollisionShape(pybullet.GEOM_BOX,halfExtents=size)
+      if shape == "box":
+        size = json_body.get("size",[1,1,1])
+        box_geom = pybullet.createCollisionShape(pybullet.GEOM_BOX,halfExtents=[size[0]*0.5,size[1]*0.5,size[2]*0.5])
         # box = pybullet.createMultiBody(baseMass=mass,baseCollisionShapeIndex=box_geom,-1,basePosition=basePosition,baseOrientation=baseOrientation)
         box = pybullet.createMultiBody(baseMass=mass,baseCollisionShapeIndex=box_geom,basePosition=basePosition,baseOrientation=baseOrientation)
         pybullet.addUserData(box,key="type",value="box")
@@ -81,12 +73,21 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
         pybullet.addUserData(box,"size",str(size))
         print("create box: ", body_id)
       elif shape == "plane":
+        size = json_body.get("size",[1,1,1])
         plane_geom = pybullet.createCollisionShape(pybullet.GEOM_PLANE)
         plane = pybullet.createMultiBody(mass,plane_geom,-1,basePosition,baseOrientation)
         pybullet.addUserData(plane,key="type",value="plane")
         pybullet.addUserData(plane,"id",body_id)
-        pybullet.addUserData(plane,"size",str([0]))
+        pybullet.addUserData(plane,"size",str(size))
         print("create plane: ", body_id)
+      # elif shape == "sphere":
+      #   radius = json_body.get("size",[1,1,1])
+      #   sphere_geom = pybullet.createCollisionShape(pybullet.GEOM_SPHERE,radius=radius)
+      #   sphere = pybullet.createMultiBody(mass,sphere_geom,-1,basePosition,baseOrientation)
+      #   pybullet.addUserData(sphere,key="type",value="sphere")
+      #   pybullet.addUserData(sphere,"id",body_id)
+      #   pybullet.addUserData(sphere,"size",str([radius]))
+      #   print("create sphere: ", body_id)
     elif command == "remove":
       found_id = getBodyId(pybullet,body_id)
       if found_id == -1:
