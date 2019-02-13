@@ -62,10 +62,10 @@ function init() {
 }
 
 function create_body(data) {
-  // // var material = new THREE.MeshLambertMaterial({color: 0x55B663});
-  // // var material = new THREE.MeshPhongMaterial({color: 0x55B663});
 
   var id = data["id"];
+  // var material = new THREE.MeshLambertMaterial({color: 0x55B663});
+  var material = new THREE.MeshPhongMaterial({color: 0x55B663});
   var material_color = new THREE.MeshBasicMaterial({color: 0x55B663, wireframe: false});
   var material_wireframe = new THREE.MeshBasicMaterial({color: 0x050603, wireframe: true, wireframeLinewidth:3});
 
@@ -77,15 +77,17 @@ function create_body(data) {
       console.log("create box");
       body = THREE.SceneUtils.createMultiMaterialObject( 
           new THREE.CubeGeometry( 1, 1, 1 ), 
-          [material_color,material_wireframe]
+          [material]
         );
+          // [material_color,material_wireframe]
     } else if (type === "plane" ) {
       console.log("create plane");
       // 2nd and 3rd argument are the vertical / horizontal segments
       body = THREE.SceneUtils.createMultiMaterialObject( 
           new THREE.PlaneGeometry( 1, 1 ), 
-          [material_color,material_wireframe]
+          [material,material_wireframe]
         );
+          // [material_color,material_wireframe]
     // } else if (type === "sphere" ) {
     }
   }

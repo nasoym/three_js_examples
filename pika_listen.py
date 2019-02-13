@@ -28,7 +28,7 @@ def callback(ch, method, properties, body):
     # print("- ", i)
     # data = json_body[i]
     if data["type"] == "box":
-      print("- ", data["pos"][2]  )
+      # print("- ", data["pos"][2]  )
       if data["pos"][2] < 3:
         all_bodies_below &= True
       else:
