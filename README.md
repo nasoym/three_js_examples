@@ -8,3 +8,15 @@ https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/
 * <https://whs.io/3D%20Transforms.html>
 * <https://threejs.org/docs/#api/en/math/Quaternion>
 
+
+  addUserData()                               applyExternalForce()
+< addUserDebugLine()                          applyExternalTorque()                       >
+  calculateInverseDynamics()                  calculateVelocityQuaternion()
+< calculateInverseKinematics()                changeConstraint()                          >
+  calculateJacobian()                         changeDynamics()
+ 
+  setJointMotorControlMultiDof()              setTimeStep()
+  setPhysicsEngineParameter()                 setVRCameraState()
+< setRealTimeSimulation()                     SHARED_MEMORY                               >
+  setTimeOut()                                SHARED_MEMORY_KEY
+

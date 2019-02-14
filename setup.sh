@@ -153,6 +153,10 @@ elif [[ "$1" == "ec2_setup_cage" ]];then shift
   # jq --arg id "${RANDOM}" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,10],size:[2,2,1]}'  | host="localhost:15672" ${0} json_to_queue
   # jq --arg id "${RANDOM}" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,10],size:[2,2,1]}'  | host="localhost:15672" ${0} json_to_queue
 
+elif [[ "$1" == "ec2_setup_box" ]];then shift
+  : ${ec2_host:="host"}
+  jq --arg id "1234" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,9],size:[1,1,1]}' | host="localhost:15672" ${0} json_to_queue
+
 else
   echo "unknown command: $@" >&2
   exit 1

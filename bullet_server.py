@@ -39,6 +39,10 @@ def rabbit_setup():
       exchange="updates",
       exchange_type="fanout"
       )
+  channel.exchange_declare(
+      exchange="infos",
+      exchange_type="fanout"
+      )
   return (connection,channel)
 
 def getBodyId(pybullet,body_id):
@@ -61,11 +65,11 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
     json_body = json.loads(body)
     command = json_body.get("command","")
     body_id = json_body.get("id",0)
+    shape = json_body.get("shape","box")
+    basePosition = json_body.get("pos",[0,0,10])
+    baseOrientation = json_body.get("rot",[0,0,0,1])
+    mass = json_body.get("mass",1)
     if command == "create":
-      shape = json_body.get("shape","box")
-      basePosition = json_body.get("pos",[0,0,10])
-      baseOrientation = json_body.get("rot",[0,0,0,1])
-      mass = json_body.get("mass",1)
       if shape == "box":
         size = json_body.get("size",[1,1,1])
         box_geom = pybullet.createCollisionShape(pybullet.GEOM_BOX,halfExtents=[size[0]*0.5,size[1]*0.5,size[2]*0.5])
@@ -113,7 +117,46 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
       elif key == "sleep_time":
         sleep_time = value;
     # elif command == "quit":
+    # elif command == "help":
+    #   size = [1,1,1]
+    #   mass = 1
+    #   basePosition = [0,0,0]
+    #   baseOrientation = [0,0,0,1]
+    #   box_geom = pybullet.createCollisionShape(pybullet.GEOM_BOX,halfExtents=[size[0]*0.5,size[1]*0.5,size[2]*0.5])
+    #   box = pybullet.createMultiBody(baseMass=mass,baseCollisionShapeIndex=box_geom,basePosition=basePosition,baseOrientation=baseOrientation)
+    #   print(box.__dict__)
+    elif command == "force":
+      force = json_body.get("force",[0,0,0])
+      found_id = getBodyId(pybullet,body_id)
+      pos,orientation = pybullet.getBasePositionAndOrientation(found_id)
+      pybullet.applyExternalForce(found_id,-1, force , pos, flags = pybullet.WORLD_FRAME )
+    elif command == "torque":
+      force = json_body.get("force",[0,0,0])
+      found_id = getBodyId(pybullet,body_id)
+      pos,orientation = pybullet.getBasePositionAndOrientation(found_id)
+      pybullet.applyExternalTorque(found_id,-1, force , flags = pybullet.WORLD_FRAME )
+    elif command == "info":
+      found_id = getBodyId(pybullet,body_id)
+      pos,orientation = pybullet.getBasePositionAndOrientation(found_id)
+      channel.basic_publish(exchange='infos',
+                        routing_key='',
+                        body=json.dumps({"id":found_id,"pos":pos,"rot":orientation}))
 
+    elif command == "help":
+      help = []
+      for i in pybullet.__dict__:
+        data = {}
+        data["name"] = i
+        element = getattr(pybullet,i)
+        data["type"] = str(type(element))
+        # data["has"] = hasattr(element,'__doc__')
+        if hasattr(element,'__doc__'):
+          data["doc"] = element.__doc__
+        # if type(element) == "builtin_function_or_method":
+        help.append(data)
+      channel.basic_publish(exchange='infos',
+                        routing_key='',
+                        body=json.dumps(help))
 # In [3]: pybullet.removeBody
 #                         removeAllUserDebugItems() removeConstraint()
 #                         removeBody()              removeUserData()
