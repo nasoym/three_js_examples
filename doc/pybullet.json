@@ -1,33 +1,28 @@
 [
   {
     "name": "__name__",
-    "type": "<class 'str'>",
-    "doc": "str(object='') -> str\nstr(bytes_or_buffer[,encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to sys.getdefaultencoding().\nerrors defaults to 'strict'."
+    "type": "<class 'str'>"
   },
   {
     "name": "__doc__",
-    "type": "<class 'str'>",
-    "doc": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to sys.getdefaultencoding().\nerrors defaults to 'strict'."
+    "type": "<class 'str'>"
   },
   {
     "name": "__package__",
-    "type": "<class 'str'>",
-    "doc": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to sys.getdefaultencoding().\nerrors defaults to 'strict'."
+    "type": "<class 'str'>"
   },
   {
     "name": "__loader__",
-    "type": "<class '_frozen_importlib_external.ExtensionFileLoader'>",
-    "doc": "Loader for extension modules.\n\n   The constructor is designed to work with FileFinder.\n\n    "
+    "type": "<class '_frozen_importlib_external.ExtensionFileLoader'>"
   },
   {
     "name": "__spec__",
-    "type": "<class '_frozen_importlib.ModuleSpec'>",
-    "doc": "The specification for a module, used for loading.\n\n   A module's spec is the source for information about the module.  For\n    data associated with the module, including source, use the spec's\n    loader.\n\n    `name` is the absolute name of the module.  `loader` is the loader\n    to use when loading the module.  `parent` is the name of the\n package the module is in.  The parent is derived from the name.\n\n    `is_package` determines if the module is considered a package or\n    not.  On modules this is reflected by the `__path__` attribute.\n\n    `origin` is the specific location used by the loader from which to\n    load the module, if that information is available.  When filename is\n    set, origin will match.\n\n    `has_location` indicates that a spec's \"origin\" reflects a location.\n    When this is True, `__file__` attribute of the module is set.\n\n    `cached` is the location of the cached bytecode file, if any.  It\n    corresponds to the `__cached__` attribute.\n\n    `submodule_search_locations` is the sequence of path entries to\n    search when importing submodules.  If set, is_package should be\n    True--and False otherwise.\n\n    Packages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\n    system will consider modules loaded from the spec as packages.\n\n    Only finders (see importlib.abc.MetaPathFinder and\n    importlib.abc.PathEntryFinder) should modify ModuleSpec instances.\n\n    "
+    "type": "<class '_frozen_importlib.ModuleSpec'>"
   },
   {
     "name": "connect",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "connect(method, key=SHARED_MEMORY_KEY, options='')\nconnect(method, hostname='localhost', port=1234, options='')\nConnect to an existing physics server (using shared memory by default)."
+    "doc": "connect(method,key=SHARED_MEMORY_KEY, options='')\nconnect(method, hostname='localhost', port=1234, options='')\nConnect to an existing physics server (using shared memory by default)."
   },
   {
     "name": "disconnect",
@@ -62,12 +57,12 @@
   {
     "name": "setTimeStep",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "setTimeStep(timestep, physicsClientId=0)\nSet the amount of time to proceed at each call to stepSimulation. (unit is seconds, typically range is 0.01 or 0.001)"
+    "doc": "setTimeStep(timestep, physicsClientId=0)\nSet the amount of time to proceed at each call to stepSimulation. (unit isseconds, typically range is 0.01 or 0.001)"
   },
   {
     "name": "setDefaultContactERP",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "setDefaultContactERP(defaultContactERP, physicsClientId=0)\nSet the amount of contact penetration Error Recovery Paramater (ERP) in each time step. \t\tThis is an tuning parameter to control restingcontact stability. This value depends on the time step."
+    "doc": "setDefaultContactERP(defaultContactERP, physicsClientId=0)\nSet the amount of contact penetration Error Recovery Paramater (ERP) in each time step. \t\tThis is an tuning parameter to control resting contact stability. This value depends on the time step."
   },
   {
     "name": "setRealTimeSimulation",
@@ -101,7 +96,7 @@
   },
   {
     "name": "loadSoftBody",
-    "type": "<class'builtin_function_or_method'>",
+    "type": "<class 'builtin_function_or_method'>",
     "doc": "Load a softbody from an obj file."
   },
   {
@@ -137,7 +132,7 @@
   {
     "name": "createCollisionShapeArray",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Create collision shapes. Returns a non-negative (int) unique id, if successfull, negative otherwise."
+    "doc": "Create collision shapes. Returns a non-negative (int) unique id, if successfull,negative otherwise."
   },
   {
     "name": "removeCollisionShape",
@@ -181,18 +176,18 @@
   },
   {
     "name": "saveWorld",
-    "type": "<class'builtin_function_or_method'>",
-    "doc": "Save a approximate Python file to reproduce the current state of the world: saveWorld(filename). (very preliminary and approximately)"
+    "type": "<class 'builtin_function_or_method'>",
+    "doc": "Save a approximate Pythonfile to reproduce the current state of the world: saveWorld(filename). (very preliminary and approximately)"
   },
   {
     "name": "getNumBodies",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Get the number of bodies in the simulation."
+    "doc": "Get thenumber of bodies in the simulation."
   },
   {
     "name": "getBodyUniqueId",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "getBodyUniqueId is used after connecting to server with existing bodies.Get the unique id of the body, given ainteger range [0.. number of bodies)."
+    "doc": "getBodyUniqueId is used after connecting to server with existing bodies.Get the unique id of the body, given a integer range [0.. number of bodies)."
   },
   {
     "name": "getBodyInfo",
@@ -237,7 +232,7 @@
   {
     "name": "getUserDataInfo",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "getUserDataInfo(bodyUniqueId, userDataIndex, physicsClientId=0)\nRetrieves thekey and the identifier of a user data as (userDataId, key, bodyUniqueId, linkIndex, visualShapeIndex)."
+    "doc": "getUserDataInfo(bodyUniqueId, userDataIndex,physicsClientId=0)\nRetrieves the key and the identifier of a user data as (userDataId, key, bodyUniqueId, linkIndex, visualShapeIndex)."
   },
   {
     "name": "removeBody",
@@ -252,7 +247,7 @@
   {
     "name": "getConstraintInfo",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Get the user-created constraint info,given a constraint unique id."
+    "doc": "Getthe user-created constraint info, given a constraint unique id."
   },
   {
     "name": "getConstraintState",
@@ -277,7 +272,7 @@
   {
     "name": "resetBasePositionAndOrientation",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Reset the world position and orientation of the base of the object instantaneously, not through physics simulation. (x,y,z) position vector and (x,y,z,w) quaternion orientation."
+    "doc": "Reset the world position and orientation of the base of the object instantaneously, notthrough physics simulation. (x,y,z) position vector and (x,y,z,w) quaternion orientation."
   },
   {
     "name": "getBaseVelocity",
@@ -317,17 +312,17 @@
   {
     "name": "getLinkState",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "position_linkcom_world, world_rotation_linkcom,\nposition_linkcom_frame, frame_rotation_linkcom,\nposition_frame_world, world_rotation_frame,\nlinearVelocity_linkcom_world, angularVelocity_linkcom_world\n  = getLinkState(objectUniqueId, linkIndex, computeLinkVelocity=0,\n                 computeForwardKinematics=0, physicsClientId=0)\nProvides extra information such as the Cartesian world coordinates center of mass (COM) of the link, relative to the world reference frame."
+    "doc": "position_linkcom_world, world_rotation_linkcom,\nposition_linkcom_frame, frame_rotation_linkcom,\nposition_frame_world, world_rotation_frame,\nlinearVelocity_linkcom_world, angularVelocity_linkcom_world\n  = getLinkState(objectUniqueId, linkIndex, computeLinkVelocity=0,\n computeForwardKinematics=0, physicsClientId=0)\nProvides extra information such as the Cartesian world coordinates center of mass (COM) of the link, relative to the world reference frame."
   },
   {
     "name": "resetJointState",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "resetJointState(objectUniqueId, jointIndex, targetValue, targetVelocity=0, physicsClientId=0)\nReset the state (position, velocity etc) for a joint on a bodyinstantaneously, not through physics simulation."
+    "doc": "resetJointState(objectUniqueId, jointIndex, targetValue, targetVelocity=0, physicsClientId=0)\nReset the state (position, velocity etc) for a joint on a body instantaneously, not through physics simulation."
   },
   {
     "name": "resetJointStateMultiDof",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "resetJointStateMultiDof(objectUniqueId, jointIndex, targetValue, targetVelocity=0, physicsClientId=0)\nReset the state (position, velocity etc) for a jointon a body instantaneously, not through physics simulation."
+    "doc": "resetJointStateMultiDof(objectUniqueId, jointIndex, targetValue, targetVelocity=0, physicsClientId=0)\nReset the state (position, velocity etc) for a joint on a body instantaneously, not through physics simulation."
   },
   {
     "name": "changeDynamics",
@@ -342,7 +337,7 @@
   {
     "name": "setJointMotorControl",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "This (obsolete) method cannot select non-zero physicsClientId, use setJointMotorControl2 instead.Set a single joint motor control modeand desired target value. There is no immediate state change, stepSimulation will process the motors."
+    "doc": "This (obsolete) method cannot select non-zero physicsClientId, use setJointMotorControl2 instead.Seta single joint motor control mode and desired target value. There is no immediate state change, stepSimulation will process the motors."
   },
   {
     "name": "setJointMotorControl2",
@@ -357,7 +352,7 @@
   {
     "name": "setJointMotorControlArray",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Set an array of motors control mode and desired target value. There is no immediate state change, stepSimulation will process the motors.This is similar to setJointMotorControl2, with jointIndices as a list, and optional targetPositions, targetVelocities, forces, kds and kps as listsUsing setJointMotorControlArray has the benefit of lower calling overhead."
+    "doc": "Set an arrayof motors control mode and desired target value. There is no immediate state change, stepSimulationwill process the motors.This is similar to setJointMotorControl2, with jointIndices as a list, and optional targetPositions, targetVelocities, forces, kds and kps as listsUsing setJointMotorControlArray has the benefit of lower calling overhead."
   },
   {
     "name": "applyExternalForce",
@@ -377,7 +372,7 @@
   {
     "name": "getCameraImage",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Render an image (given the pixel resolution width, height, camera viewMatrix , projectionMatrix, lightDirection, lightColor, lightDistance, shadow, lightAmbientCoeff, lightDiffuseCoeff, lightSpecularCoeff, and renderer), and returnthe 8-8-8bit RGB pixel data and floating point depth values"
+    "doc": "Render an image (given the pixel resolution width, height, camera viewMatrix , projectionMatrix, lightDirection, lightColor, lightDistance, shadow, lightAmbientCoeff, lightDiffuseCoeff, lightSpecularCoeff, and renderer), and return the 8-8-8bit RGB pixel data and floating point depth values"
   },
   {
     "name": "isNumpyEnabled",
@@ -387,7 +382,7 @@
   {
     "name": "computeViewMatrix",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Compute a camera viewmatrix from camera eye,  target position and up vector "
+    "doc": "Compute a camera viewmatrix fromcamera eye,  target position and up vector "
   },
   {
     "name": "computeViewMatrixFromYawPitchRoll",
@@ -412,17 +407,17 @@
   {
     "name": "getClosestPoints",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Compute the closest points between two objects, if the distance is below a given threshold.Input is two objects unique idsand distance threshold."
+    "doc": "Compute the closest points between two objects, if the distance is below a given threshold.Input is two objects unique ids and distance threshold."
   },
   {
     "name": "getOverlappingObjects",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Return all the objects that have overlap with a given axis-aligned bounding box volume (AABB).Input are two vectors defining the AABB in world space [min_x,min_y,min_z],[max_x,max_y,max_z]."
+    "doc": "Return all the objects that have overlap with a given axis-aligned bounding box volume (AABB).Input are two vectors defining the AABB in world space[min_x,min_y,min_z],[max_x,max_y,max_z]."
   },
   {
     "name": "setCollisionFilterPair",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Enable or disable collision detection between two object links.Input are two object unique ids andtwo link indices and an enumto enable or disable collisions."
+    "doc": "Enable or disable collision detection between two object links.Input are two object unique ids and two link indices and an enumto enable or disable collisions."
   },
   {
     "name": "setCollisionFilterGroupMask",
@@ -432,12 +427,12 @@
   {
     "name": "addUserDebugLine",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Add a user debug draw line with lineFrom[3], lineTo[3], lineColorRGB[3], lineWidth, lifeTime. AlifeTime of 0 means permanent until removed. Returns a unique id for the user debug item."
+    "doc": "Add a user debug draw line with lineFrom[3], lineTo[3], lineColorRGB[3], lineWidth, lifeTime. A lifeTime of 0 means permanent until removed. Returns a unique id for the user debug item."
   },
   {
     "name": "addUserDebugText",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Add a user debug drawline with text, textPosition[3], textSize and lifeTime in seconds A lifeTime of 0 means permanent until removed. Returns a unique id for the user debug item."
+    "doc": "Add a user debug draw line with text, textPosition[3], textSize and lifeTime in secondsA lifeTime of 0 means permanent until removed. Returns a unique id for the user debug item."
   },
   {
     "name": "addUserDebugParameter",
@@ -447,7 +442,7 @@
   {
     "name": "readUserDebugParameter",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Read the current value of a user debug parameter, given the user debug item unique id."
+    "doc": "Read the current value of a user debugparameter, given the user debug item unique id."
   },
   {
     "name": "removeUserDebugItem",
@@ -531,12 +526,12 @@
   },
   {
     "name": "getMatrixFromQuaternion",
-    "type": "<class'builtin_function_or_method'>",
+    "type": "<class 'builtin_function_or_method'>",
     "doc": "Compute the 3x3 matrix from a quaternion, as a list of 9 values (row-major)"
   },
   {
     "name": "getQuaternionSlerp",
-    "type": "<class 'builtin_function_or_method'>",
+    "type": "<class'builtin_function_or_method'>",
     "doc": "Compute the spherical interpolation given a start and end quaternion and an interpolation value in range [0..1]"
   },
   {
@@ -552,7 +547,7 @@
   {
     "name": "getDifferenceQuaternion",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Compute the quaternion difference from two quaternions."
+    "doc": "Compute the quaternion difference fromtwo quaternions."
   },
   {
     "name": "getAxisDifferenceQuaternion",
@@ -561,8 +556,8 @@
   },
   {
     "name": "calculateVelocityQuaternion",
-    "type": "<class'builtin_function_or_method'>",
-    "doc": "Compute the angular velocity given start and end quaternionand delta time."
+    "type": "<class 'builtin_function_or_method'>",
+    "doc": "Compute the angular velocity given start and end quaternion and delta time."
   },
   {
     "name": "rotateVector",
@@ -577,12 +572,12 @@
   {
     "name": "calculateJacobian",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "linearJacobian, angularJacobian = calculateJacobian(bodyUniqueId, linkIndex, localPosition, objPositions, objVelocities, objAccelerations, physicsClientId=0)\nCompute the jacobian for a specified local position on a body and its kinematics.\nArgs:\n  bodyIndex - a scalar defining the unique object id.\n  linkIndex - a scalar identifying the link containing the local point.\n  localPosition - a list of [x, y, z] of the coordinates defined in the link frame.\n  objPositions - a list of the joint positions.\n  objVelocities - a list of the joint velocities.\n  objAccelerations - a list of the joint accelerations.\nReturns:\n  linearJacobian - a list of the partial linear velocities of the jacobian.\n  angularJacobian - a list of the partial angular velocities of the jacobian.\n"
+    "doc": "linearJacobian, angularJacobian = calculateJacobian(bodyUniqueId, linkIndex, localPosition, objPositions, objVelocities, objAccelerations, physicsClientId=0)\nCompute the jacobian for a specified local position on a body and its kinematics.\nArgs:\n  bodyIndex - a scalar defining the unique object id.\n  linkIndex -a scalar identifying the link containing the local point.\n  localPosition - a list of [x, y, z] ofthe coordinates defined in the link frame.\n  objPositions - a list of the joint positions.\n  objVelocities - a list of the joint velocities.\n  objAccelerations - a list of the joint accelerations.\nReturns:\n  linearJacobian - a list of the partial linear velocities of the jacobian.\n  angularJacobian - a list of the partial angular velocities of the jacobian.\n"
   },
   {
     "name": "calculateMassMatrix",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "massMatrix = calculateMassMatrix(bodyUniqueId, objPositions, physicsClientId=0)\nCompute the mass matrix for an object and its chain of bodies.\nArgs:\n  bodyIndex - a scalardefining the unique object id.\n  objPositions - a list of the joint positions.\nReturns:\n  massMatrix - a list of lists of the mass matrix components.\n"
+    "doc": "massMatrix = calculateMassMatrix(bodyUniqueId, objPositions, physicsClientId=0)\nCompute the mass matrix for an object and its chain of bodies.\nArgs:\n  bodyIndex - a scalar defining the unique object id.\n  objPositions - a list of the joint positions.\nReturns:\n  massMatrix - a list of lists of the mass matrix components.\n"
   },
   {
     "name": "calculateInverseKinematics",
@@ -622,7 +617,7 @@
   {
     "name": "rayTest",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Cast a ray and return the first object hit, if any. Takes two arguments (from_position [x,y,z] and to_position [x,y,z] in Cartesian world coordinates"
+    "doc": "Cast a ray andreturn the first object hit, if any. Takes two arguments (from_position [x,y,z] and to_position [x,y,z] in Cartesian world coordinates"
   },
   {
     "name": "rayTestBatch",
@@ -647,12 +642,12 @@
   {
     "name": "submitProfileTiming",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Add a custom profile timing that will be visible in performance profile recordings on the physics server.On the physics server (in GUI and VR mode) you can press 'p' to start and/or stop profile recordings"
+    "doc": "Add a custom profiletiming that will be visible in performance profile recordings on the physics server.On the physics server (in GUI and VR mode) you can press 'p' to start and/or stop profile recordings"
   },
   {
     "name": "setTimeOut",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Set the timeOut in seconds, used for most of the API calls."
+    "doc": "Set the timeOut in seconds, usedfor most of the API calls."
   },
   {
     "name": "setAdditionalSearchPath",
@@ -662,741 +657,596 @@
   {
     "name": "getAPIVersion",
     "type": "<class 'builtin_function_or_method'>",
-    "doc": "Get version of the API. Compatibility exists for connections usingthe same API version. Make sure both client and server use the same number of bits (32-bit or 64bit)."
+    "doc": "Get version of the API. Compatibility exists for connections using the same API version. Make sure both client and server use the same number of bits (32-bit or 64bit)."
   },
   {
     "name": "SHARED_MEMORY",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "DIRECT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GUI",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must bea string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "UDP",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "TCP",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GUI_SERVER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number orstring to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GUI_MAIN_THREAD",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x mustbe a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  Theliteral can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "SHARED_MEMORY_SERVER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal canbe preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "SHARED_MEMORY_KEY",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by'+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "SHARED_MEMORY_KEY2",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 meansto interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_REVOLUTE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing aninteger literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_PRISMATIC",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_SPHERICAL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string toan integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, thenx must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integerliteral.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_PLANAR",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_FIXED",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearrayinstance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or'-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_POINT2POINT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10)-> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  Ifx is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIfx is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_GEAR",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConverta number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, returnx.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "SENSOR_FORCE_TORQUE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__(). For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_FEEDBACK_IN_WORLD_SPACE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "JOINT_FEEDBACK_IN_JOINT_FRAME",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or stringto an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "TORQUE_CONTROL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, orreturn 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literalcan be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VELOCITY_CONTROL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) ->integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, orbytearray instance representing an integer literal in the\ngiven base.  The literal can be precededby '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "POSITION_CONTROL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x,base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "PD_CONTROL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class'int'>"
   },
   {
     "name": "LINK_FRAME",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__(). For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "WORLD_FRAME",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer,or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be astring,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Validbases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "CONTACT_REPORT_EXISTING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers,this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "CONTACT_RECOMPUTE_CLOSEST",
-    "type": "<class 'int'>",
-    "doc": "int(x=0)-> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes,or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "CONSTRAINT_SOLVER_LCP_SI",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncatestowards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "CONSTRAINT_SOLVER_LCP_PGS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "CONSTRAINT_SOLVER_LCP_DANTZIG",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_BUTTON_IS_DOWN",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x isa number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x isnot a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpretthe base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_BUTTON_WAS_TRIGGERED",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the basefrom the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_BUTTON_WAS_RELEASED",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert anumber or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or ifbase is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_MAX_CONTROLLERS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_MAX_BUTTONS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer,or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be astring,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Validbases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_DEVICE_CONTROLLER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_DEVICE_HMD",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_DEVICE_GENERIC_TRACKER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instancerepresenting an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VR_CAMERA_TRACK_OBJECT_ORIENTATION",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 meansto interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "KEY_IS_DOWN",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "KEY_WAS_TRIGGERED",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  Thebase defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "KEY_WAS_RELEASED",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string toan integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, thenx must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integerliteral.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_MINITAUR",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must bea string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_GENERIC_ROBOT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, orreturn 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literalcan be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_VR_CONTROLLERS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal canbe preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_VIDEO_MP4",
-    "type": "<class 'int'>",
-    "doc": "int(x=0)-> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes,or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_CONTACT_POINTS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_PROFILE_TIMINGS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_ALL_COMMANDS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearrayinstance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or'-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_REPLAY_ALL_COMMANDS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 meansto interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOGGING_CUSTOM_TIMER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_GUI",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_SHADOWS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the stringas an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_WIREFRAME",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaultsto 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_VR_PICKING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_VR_TELEPORTING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_RENDERING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0)-> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes,or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_TINY_RENDERER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncatestowards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_Y_AXIS_UP",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 meansto interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_VR_RENDER_CONTROLLERS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 meansto interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_KEYBOARD_SHORTCUTS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means tointerpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_MOUSE_PICKING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) ->integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_RGB_BUFFER_PREVIEW",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_DEPTH_BUFFER_PREVIEW",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is anumber, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representingan integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_SEGMENTATION_MARK_PREVIEW",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) ->integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_PLANAR_REFLECTION",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is anumber, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representingan integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "COV_ENABLE_SINGLE_STEP_RENDERING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is anumber, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representingan integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ER_TINY_RENDERER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace. The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from thestring as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ER_BULLET_HARDWARE_OPENGL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the stringas an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ER_SEGMENTATION_MASK_OBJECT_AND_LINKINDEX",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number orif base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ER_NO_SEGMENTATION_MASK",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the stringas an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ER_USE_PROJECTIVE_TEXTURE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "IK_DLS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal canbe preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class'int'>"
   },
   {
     "name": "IK_SDLS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towardszero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "IK_HAS_TARGET_POSITION",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "IK_HAS_TARGET_ORIENTATION",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x isa number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x isnot a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpretthe base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "IK_HAS_NULL_SPACE_VELOCITY",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not anumber or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nbywhitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "IK_HAS_JOINT_DAMPING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace. The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from thestring as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_INERTIA_FROM_FILE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if baseis given, then x must be a string,\nbytes, or bytearray instance representing an integer literal inthe\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_IMPLICIT_CYLINDER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__(). For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_GLOBAL_VELOCITIES_MB",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaultsto 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "MJCF_COLORS_FROM_FILE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_ENABLE_CACHED_GRAPHICS_SHAPES",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x mustbe a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  Theliteral can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_ENABLE_SLEEPING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal canbe preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_INITIALIZE_SAT_FEATURES",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_MATERIAL_COLORS_FROM_MTL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can bepreceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_MATERIAL_TRANSPARANCY_FROM_MTL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, orreturn 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literalcan be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_MAINTAIN_LINK_ORDER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ACTIVATION_STATE_ENABLE_SLEEPING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ACTIVATION_STATE_DISABLE_SLEEPING",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can bepreceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ACTIVATION_STATE_WAKE_UP",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if noarguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ACTIVATION_STATE_SLEEP",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_SELF_COLLISION",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' andbe surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_SELF_COLLISION_EXCLUDE_PARENT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_SELF_COLLISION_INCLUDE_PARENT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "URDF_USE_SELF_COLLISION_EXCLUDE_ALL_PARENTS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, thistruncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "VISUAL_SHAPE_DATA_TEXTURE_UNIQUE_IDS",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can bepreceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "MAX_RAY_INTERSECTION_BATCH_SIZE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F1",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' andbe surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F2",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base fromthe string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F3",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F4",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 ifno arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100',base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F5",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F6",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace. The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from thestring as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F7",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floatingpoint\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10. Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F8",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) ->integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, orbytearray instance representing an integer literal in the\ngiven base.  The literal can be precededby '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F9",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F10",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literalin the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F11",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x mustbe a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  Theliteral can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F12",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F13",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F14",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literalin the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_F15",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x mustbe a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  Theliteral can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_LEFT_ARROW",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_RIGHT_ARROW",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_UP_ARROW",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_DOWN_ARROW",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert anumber or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or ifbase is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_PAGE_UP",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_PAGE_DOWN",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_END",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\naregiven.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-'and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_HOME",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_INSERT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__(). For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_DELETE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_BACKSPACE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_SHIFT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_CONTROL",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_ALT",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "B3G_RETURN",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_SPHERE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towardszero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_BOX",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_CYLINDER",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a numberor string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_MESH",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must bea string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_PLANE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_CAPSULE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given. If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and besurrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_FORCE_CONCAVE_TRIMESH",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If xis a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf xis not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "GEOM_CONCAVE_INTERNAL_EDGE",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOG_JOINT_MOTOR_TORQUES",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not anumber or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nbywhitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOG_JOINT_USER_TORQUES",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number,return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "STATE_LOG_JOINT_TORQUES",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert anumber or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or ifbase is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "AddFileIOAction",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or stringto an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "RemoveFileIOAction",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "PosixFileIO",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "ZipFileIO",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "CNSFileIO",
-    "type": "<class 'int'>",
-    "doc": "int(x=0) -> integer\nint(x, base=10) -> integer\n\nConverta number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, returnx.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
+    "type": "<class 'int'>"
   },
   {
     "name": "error",
-    "type": "<class 'type'>",
-    "doc": null
+    "type": "<class 'type'>"
   },
   {
     "name": "__file__",
-    "type": "<class 'str'>",
-    "doc": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to sys.getdefaultencoding().\nerrors defaults to 'strict'."
+    "type": "<class 'str'>"
   }
 ]
+
+

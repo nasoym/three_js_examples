@@ -151,12 +151,49 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
         data["type"] = str(type(element))
         # data["has"] = hasattr(element,'__doc__')
         if hasattr(element,'__doc__'):
-          data["doc"] = element.__doc__
+          if str(type(element)) == "<class 'builtin_function_or_method'>":
+            data["doc"] = element.__doc__
         # if type(element) == "builtin_function_or_method":
         help.append(data)
       channel.basic_publish(exchange='infos',
                         routing_key='',
                         body=json.dumps(help))
+    elif command == "joint":
+      id2 = json_body.get("id2")
+      body1 = getBodyId(pybullet,body_id)
+      body2 = getBodyId(pybullet,id2)
+      j = pybullet.createConstraint(
+          body1,
+          -1,
+          body2,
+          -1,
+          jointType=pybullet.JOINT_POINT2POINT,
+          jointAxis=[0,1,0],
+          parentFramePosition=[0,1.6,0],
+          childFramePosition=[0,-1.6,0]
+          )
+
+  #         ,
+  #         [0,0,0,1],
+  #         [0,0,0,1]
+	# static char* kwlist[] = {"parentBodyUniqueId", "parentLinkIndex",
+	# 						 "childBodyUniqueId", "childLinkIndex",
+	# 						 "jointType",
+	# 						 "jointAxis",
+	# 						 "parentFramePosition",
+	# 						 "childFramePosition",
+  #
+  #
+          # jointType=pybullet.JOINT_REVOLUTE,
+          # jointAxis=[0,1,0],
+          # parentFramePosition=[0,1.5,0],
+          # childFramePosition=[0,-1.5,0]
+
+# bullet3/examples/pybullet/examples/vr_racecar_differential.py:50:c
+# = p.createConstraint(car,17,car,19,jointType=p.JOINT_GEAR,jointAxis
+#     =[0,1,0],parentFramePosition=[0,0,0],childFramePosition=[0,0,0])
+
+
 # In [3]: pybullet.removeBody
 #                         removeAllUserDebugItems() removeConstraint()
 #                         removeBody()              removeUserData()
