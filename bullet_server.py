@@ -167,11 +167,17 @@ def rabbit_get_queue(channel,pybullet, rabbit_queue):
           -1,
           body2,
           -1,
-          jointType=pybullet.JOINT_POINT2POINT,
+          jointType=pybullet.JOINT_FIXED,
           jointAxis=[0,1,0],
           parentFramePosition=[0,1.6,0],
           childFramePosition=[0,-1.6,0]
           )
+          # jointType=pybullet.JOINT_PR,
+
+# JOINT_PRISMATIC, JOINT_FIXED,
+# JOINT_POINT2POINT, JOINT_GEAR
+
+          
 
   #         ,
   #         [0,0,0,1],

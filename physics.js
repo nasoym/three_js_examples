@@ -77,7 +77,7 @@ function create_body(data) {
       console.log("create box");
       body = THREE.SceneUtils.createMultiMaterialObject( 
           new THREE.CubeGeometry( 1, 1, 1 ), 
-          [material]
+          [material,material_wireframe]
         );
           // [material_color,material_wireframe]
     } else if (type === "plane" ) {
