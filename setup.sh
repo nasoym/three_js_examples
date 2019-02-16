@@ -159,6 +159,7 @@ elif [[ "$1" == "ec2_setup_box" ]];then shift
   jq --arg id "5678" -c -n '{mass:1,command:"create",shape:"box",id:$id,pos:[0,0,9],size:[1,3,1]}' | host="localhost:15672" ${0} json_to_queue
 
 elif [[ "$1" == "setup1" ]];then shift
+  : ${ec2_host:="host"}
 
   ${0} ec2_setup_bullet
   ${0} ec2_setup_cage
@@ -166,7 +167,7 @@ elif [[ "$1" == "setup1" ]];then shift
 
   jq -c -n '{command:"joint","id":"1234","id2":"5678"}' \
     | host="localhost:15672" ${0} json_to_queue
-  ec2 ssh host "docker logs bullet"
+  ec2 ssh ${ec2_host} "docker logs bullet"
 
 else
   echo "unknown command: $@" >&2
