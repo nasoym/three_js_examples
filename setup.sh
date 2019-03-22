@@ -37,7 +37,7 @@ elif [[ "$1" == "bullet" ]];then shift
 
 elif [[ "$1" == "rabbit" ]];then shift
   docker rm -vf rabbit || true
-  docker run --name rabbit -d -P --entrypoint "/bin/bash" rabbitmq:3-management -c 'rabbitmq-plugins enable --offline rabbitmq_web_stomp ;docker-entrypoint.sh rabbitmq-server'
+  docker run --name rabbit -d -p 5672:5672 -P --entrypoint "/bin/bash" rabbitmq:3-management -c 'rabbitmq-plugins enable --offline rabbitmq_web_stomp ;docker-entrypoint.sh rabbitmq-server'
 
 elif [[ "$1" == "socat" ]];then shift
   docker rm -vf socat || true
