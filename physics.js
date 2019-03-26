@@ -156,7 +156,8 @@ document.onreadystatechange = function () {
 
     var urlParams = new URLSearchParams(window.location.search);
     var host = window.location.hostname;
-    var port = 15674;
+    // var port = 15674;
+    var port = 8080;
     var exchange_name = "updates";
     if (urlParams.has('host')) {
       host = urlParams.get('host');
