@@ -107,6 +107,7 @@ function update_body(data) {
     body.position.set(data["pos"][0],data["pos"][1],data["pos"][2]);
   }
   if (data.hasOwnProperty("rot")) {
+    // console.log(data["rot"][0],data["rot"][1],data["rot"][2],data["rot"][3]);
     body.quaternion.set(data["rot"][0],data["rot"][1],data["rot"][2],data["rot"][3]);
   }
   if (data.hasOwnProperty("size")) {
